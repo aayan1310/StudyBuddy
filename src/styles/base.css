@@ -1,0 +1,134 @@
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  font-size: var(--text-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Focus visible ring */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  padding: var(--space-2) var(--space-3);
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Main landmark */
+main {
+  padding: var(--space-4);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Navigation */
+.nav {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) var(--space-4);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: var(--space-4);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  color: var(--color-text);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  display: inline-block;
+}
+
+.nav-link[aria-current=\"page\"] {
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+/* Bottom tab bar for narrow screens */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-2) 0;
+}
+
+.bottom-nav-list {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.bottom-nav-link {
+  color: var(--color-text);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.bottom-nav-link[aria-current=\"page\"] {
+  font-weight: 600;
+  border-top: 2px solid var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .nav {
+    display: none;
+  }
+  .bottom-nav {
+    display: block;
+  }
+  main {
+    padding-bottom: 80px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
